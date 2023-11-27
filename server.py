@@ -3,6 +3,10 @@ from flask import Flask, render_template, request
 
 app = Flask("Mathematics Problem Solver")
 
+@app.route("/")
+def render_index_page():
+    return render_template('index.html')
+
 @app.route("/sum")
 def sum_route():
     num1 = float(request.args.get('num1'))
@@ -21,9 +25,7 @@ def mul_route():
     num2 = float(request.args.get('num2'))
     # Write your code here  
 
-@app.route("/")
-def render_index_page():
-    # Write your code here
+
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
